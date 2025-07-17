@@ -29,8 +29,8 @@ authRouter.post("/login",async(req,res)=>{
             //generate the token using jwt
             const token=await match.getJWT();
             res.cookie("token",token,{expires:new Date(Date.now()+7*24*60*60*1000)})
-            const{fullName,email,about,hobbies,profilePhoto,age,gender}=match
-            return res.json({fullName,email,about,hobbies,profilePhoto,age,gender})
+            const{_id,fullName,email,about,hobbies,profilePhoto,age,gender}=match
+            return res.json({_id,fullName,email,about,hobbies,profilePhoto,age,gender})
         }
         else{
             res.status(400).json("Invalid Credentials")

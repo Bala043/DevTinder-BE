@@ -63,11 +63,18 @@ const userSchema=mongoose.Schema({
         max:100,
         default:18
 
+    },isPremium:{
+        type:Boolean,
+        default:false,
+    },
+    memberShipType:{
+        type:String,
+        
     }
 },{timestamps:true})
 userSchema.methods.getJWT=async function(){
     const match=this;
-const token=await jwt.sign({_id:match._id},"SECRETKEY",{expiresIn:"7d"})
+const token=await jwt.sign({_id:match._id},process.env.JWT_SECRET_KEY,{expiresIn:"7d"})
 return token
 }
 userSchema.methods.validateLoginPassword=async function(inputpass){

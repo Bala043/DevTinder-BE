@@ -28,7 +28,7 @@ Object.keys(req.body).forEach((key)=>{
 await loggedUser.save()
 res.send(loggedUser)
     }catch(err){
-        res.send(err.message)
+        res.status(400).json({error:err.message})
     }
 })
 profileRouter.patch("/profile/passwordupdate",userAuth,async(req,res)=>{
