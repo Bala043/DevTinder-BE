@@ -6,7 +6,7 @@ const {connectDb}=require("../src/config/database");
 const cookieParser=require("cookie-parser");
 const app=express();
 app.use(cors({
-    origin:process.env.FRONTEND_URL,
+    origin:[process.env.FRONTEND_URL, "http://34.201.77.122"],
     credentials:true,
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
 }))
