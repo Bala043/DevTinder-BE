@@ -3,8 +3,10 @@
 const initializeSocket=(server)=>{
    
 const io=socket(server,{
+    path: "/api/socket.io",
     cors:{
-        origin:["http://localhost:5173", "http://34.201.77.122"]
+        origin:["http://localhost:5173", "http://34.201.77.122"],
+        credentials: true,
     }
 });
 io.on("connection",(socket)=>{
