@@ -58,7 +58,7 @@ connections.forEach((connection)=>{
     blockedUsers.add(connection.toUserId.toString())
 })
 const users=await User.find({$and:[{_id:{$nin:Array.from(blockedUsers)}},{_id:{$ne:loggedUser}}]}).select(userDetails).skip(skip).limit(limit)
-console.log(users)
+
 res.json(users)}catch(err){
     return res.json({message:err.message})
 }
