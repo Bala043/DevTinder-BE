@@ -4,7 +4,7 @@ const initializeSocket=(server)=>{
    
 const io=socket(server,{
     cors:{
-        origin:[process.env.FRONTEND_URL,"http://34.201.77.122"]
+        origin:["http://localhost:5173", "http://34.201.77.122"]
     }
 });
 io.on("connection",(socket)=>{
